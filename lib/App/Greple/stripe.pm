@@ -15,6 +15,10 @@ App::Greple::stripe - Greple zebra stripe module
 
     greple -Mstripe [ module options -- ] ...
 
+=head1 VERSION
+
+Version 0.01
+
 =head1 DESCRIPTION
 
 App::Greple::stripe is a module for B<greple> to show matched text

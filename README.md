@@ -7,6 +7,10 @@ App::Greple::stripe - Greple zebra stripe module
 
     greple -Mstripe [ module options -- ] ...
 
+# VERSION
+
+Version 0.01
+
 # DESCRIPTION
 
 App::Greple::stripe is a module for **greple** to show matched text
