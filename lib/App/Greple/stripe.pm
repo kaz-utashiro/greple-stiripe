@@ -13,7 +13,7 @@ App::Greple::stripe - Greple zebra stripe module
 
 =head1 SYNOPSIS
 
-    greple -Mstripe ...
+    greple -Mstripe [ module options -- ] ...
 
 =head1 DESCRIPTION
 
@@ -68,6 +68,28 @@ when calling the module.
 <img width="750" src="https://raw.githubusercontent.com/kaz-utashiro/greple-stiripe/refs/heads/main/images/step-3.png">
 </p>
 
+=head1 MODULE OPTIONS
+
+There are options specific to the B<stripe> module.  They can be
+specified either at the time of module declaration or as options
+following the module declaration and ending with C<-->.
+
+The following two commands have exactly the same effect.
+
+    greple -Mstripe=set=step=3
+
+    greple -Mstripe --step=3 --
+
+=over 7
+
+=item B<-Mstep::set>=B<step>=I<n>
+
+=item B<--step>=I<n>
+
+Set the step count to I<n>.
+
+=back
+
 =head1 AUTHOR
 
 Kazumasa Utashiro
@@ -81,15 +103,28 @@ it under the same terms as Perl itself.
 
 =cut
 
-use List::Util qw(max);
+use List::Util qw(max pairmap first);
 use Hash::Util qw(lock_keys);
+use Scalar::Util;
+*is_number = \&Scalar::Util::looks_like_number;
+use Data::Dumper;
 
 our %opt = (
-    debug => \(our $debug = 0),
-    step  => \(our $step = 2),
+    step  => 2,
 );
 lock_keys %opt;
 sub opt :lvalue { ${$opt{+shift}} }
+
+sub hash_to_spec {
+    pairmap {
+	$a = "$a|${\(uc(substr($a, 0, 1)))}";
+	my $ref = ref $b;
+	if    (not defined $b)   { "$a!"  }
+	elsif ($ref eq 'SCALAR') { "$a!"  }
+	elsif (is_number($b))    { "$a=f" }
+	else                     { "$a=s" }
+    } shift->%*;
+}
 
 my @series = (
     [ qw(/544 /533) ],
@@ -100,15 +135,38 @@ my @series = (
     [ qw(/554 /553) ],
 );
 
+sub mod_argv {
+    my($mod, $argv) = @_;
+    my @my_argv;
+    if (@$argv and $argv->[0] !~ /^-M/ and
+	defined(my $i = first { $argv->[$_] eq '--' } keys @$argv)) {
+	splice @$argv, $i, 1; # remove '--'
+	@my_argv = splice @$argv, 0, $i;
+    }
+    ($mod, \@my_argv, $argv);
+}
+
+sub getopt {
+    my($argv, $opt) = @_;
+    return if @{ $argv //= [] } == 0;
+    use Getopt::Long qw(GetOptionsFromArray);
+    Getopt::Long::Configure qw(bundling);
+    GetOptionsFromArray $argv, $opt, hash_to_spec $opt
+	or die "Option parse error.\n";
+}
+
 sub finalize {
-    our($mod, $argv) = @_;
+    our($mod, $my_argv, $argv) = mod_argv @_;
+    getopt $my_argv, \%opt;
     my @default = qw(--stripe-postgrep);
+    my @cm;
     for my $i (0, 1) {
-	for my $s (0 .. $step - 1) {
-	    push @default, "--cm", $series[$s % @series]->[$i];
+	for my $s (0 .. $opt{step} - 1) {
+	    push @cm, $series[$s % @series]->[$i];
 	}
     }
-    $mod->setopt(default => join(' ', @default));
+    local $" = ',';
+    $mod->setopt(default => join(' ', @default, "--cm=@cm"));
 }
 
 #
@@ -116,6 +174,7 @@ sub finalize {
 #
 sub stripe {
     my $grep = shift;
+    my $step = $opt{step};
     if ($step == 0) {
 	$step = _max_index($grep) + 1;
     }
@@ -142,7 +201,7 @@ sub set {
     while (my($key, $val) = splice @_, 0, 2) {
 	next if $key eq &::FILELABEL;
 	die "$key: Invalid option.\n" if not exists $opt{$key};
-	opt($key) = $val;
+	$opt{$key} = $val;
     }
 }
 

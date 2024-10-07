@@ -45,6 +45,7 @@
             "App::Greple" : "9.1506",
             "Hash::Util" : "0",
             "List::Util" : "1.56",
+            "Scalar::Util" : "0",
             "perl" : "5.024"
          }
       },

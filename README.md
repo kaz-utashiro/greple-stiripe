@@ -5,7 +5,7 @@ App::Greple::stripe - Greple zebra stripe module
 
 # SYNOPSIS
 
-    greple -Mstripe ...
+    greple -Mstripe [ module options -- ] ...
 
 # DESCRIPTION
 
@@ -69,6 +69,23 @@ when calling the module.
     <img width="750" src="https://raw.githubusercontent.com/kaz-utashiro/greple-stiripe/refs/heads/main/images/step-3.png">
     </p>
 </div>
+
+# MODULE OPTIONS
+
+There are options specific to the **stripe** module.  They can be
+specified either at the time of module declaration or as options
+following the module declaration and ending with `--`.
+
+The following two commands have exactly the same effect.
+
+    greple -Mstripe=set=step=3
+
+    greple -Mstripe --step=3 --
+
+- **-Mstep::set**=**step**=_n_
+- **--step**=_n_
+
+    Set the step count to _n_.
 
 # AUTHOR
 
