@@ -86,11 +86,31 @@ The following two commands have exactly the same effect.
 
 =over 7
 
-=item B<-Mstep::set>=B<step>=I<n>
+=item B<-Mstripe::set>=B<step>=I<n>
 
 =item B<--step>=I<n>
 
 Set the step count to I<n>.
+
+=item B<-Mstripe::set>=B<darkmode>
+
+=item B<--darkmode>=I<n>
+
+Use dark background colors.
+
+=for html <p>
+<img width="750" src="https://raw.githubusercontent.com/kaz-utashiro/greple-stiripe/refs/heads/main/images/darkmode.png">
+</p>
+
+Use C<--face> option to set foreground color for all colormap.  The
+following command sets the foreground color to white and fills the
+entire line with the background color.
+
+    greple -Mstripe --darkmode -- --face +WE
+
+=for html <p>
+<img width="750" src="https://raw.githubusercontent.com/kaz-utashiro/greple-stiripe/refs/heads/main/images/dark-white.png">
+</p>
 
 =back
 
@@ -120,7 +140,8 @@ use Scalar::Util;
 use Data::Dumper;
 
 our %opt = (
-    step  => 2,
+    step     => 2,
+    darkmode => undef,
 );
 lock_keys %opt;
 sub opt :lvalue { ${$opt{+shift}} }
@@ -136,13 +157,23 @@ sub hash_to_spec {
     } shift->%*;
 }
 
-my @series = (
-    [ qw(/544 /533) ],
-    [ qw(/454 /353) ],
-    [ qw(/445 /335) ],
-    [ qw(/554 /553) ],
-    [ qw(/545 /535) ],
-    [ qw(/554 /553) ],
+my %series = (
+    light => [
+	[ qw(/544 /533) ],
+	[ qw(/454 /353) ],
+	[ qw(/445 /335) ],
+	[ qw(/554 /553) ],
+	[ qw(/545 /535) ],
+	[ qw(/554 /553) ],
+    ],
+    dark => [
+	[ qw(/200 /100) ],
+	[ qw(/020 /010) ],
+	[ qw(/003 /001) ],
+	[ qw(/220 /110) ],
+	[ qw(/202 /101) ],
+	[ qw(/220 /110) ],
+    ],
 );
 
 sub mod_argv {
@@ -170,9 +201,10 @@ sub finalize {
     getopt $my_argv, \%opt;
     my @default = qw(--stripe-postgrep);
     my @cm;
+    my $map = $opt{darkmode} ? $series{dark} : $series{light};
     for my $i (0, 1) {
 	for my $s (0 .. $opt{step} - 1) {
-	    push @cm, $series[$s % @series]->[$i];
+	    push @cm, $map->[$s % @$map]->[$i];
 	}
     }
     local $" = ',';

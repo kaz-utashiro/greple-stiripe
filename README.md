@@ -86,10 +86,33 @@ The following two commands have exactly the same effect.
 
     greple -Mstripe --step=3 --
 
-- **-Mstep::set**=**step**=_n_
+- **-Mstripe::set**=**step**=_n_
 - **--step**=_n_
 
     Set the step count to _n_.
+
+- **-Mstripe::set**=**darkmode**
+- **--darkmode**=_n_
+
+    Use dark background colors.
+
+    <div>
+            <p>
+            <img width="750" src="https://raw.githubusercontent.com/kaz-utashiro/greple-stiripe/refs/heads/main/images/darkmode.png">
+            </p>
+    </div>
+
+    Use `--face` option to set foreground color for all colormap.  The
+    following command sets the foreground color to white and fills the
+    entire line with the background color.
+
+        greple -Mstripe --darkmode -- --face +WE
+
+    <div>
+            <p>
+            <img width="750" src="https://raw.githubusercontent.com/kaz-utashiro/greple-stiripe/refs/heads/main/images/dark-white.png">
+            </p>
+    </div>
 
 # SEE ALSO
 
