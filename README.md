@@ -13,8 +13,8 @@ Version 0.99
 
 # DESCRIPTION
 
-App::Greple::stripe is a module for **greple** to show matched text
-in zebra striping fashion.
+[App::Greple::stripe](https://metacpan.org/pod/App%3A%3AGreple%3A%3Astripe) is a module for [greple](https://metacpan.org/pod/App%3A%3AGreple) to show
+matched text in zebra striping fashion.
 
 The following command matches two consecutive lines.
 
@@ -90,6 +90,12 @@ The following two commands have exactly the same effect.
 - **--step**=_n_
 
     Set the step count to _n_.
+
+# SEE ALSO
+
+[App::Greple](https://metacpan.org/pod/App%3A%3AGreple)
+
+[App::Greple::xlate](https://metacpan.org/pod/App%3A%3AGreple%3A%3Axlate)
 
 # AUTHOR
 

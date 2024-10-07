@@ -21,8 +21,8 @@ Version 0.99
 
 =head1 DESCRIPTION
 
-App::Greple::stripe is a module for B<greple> to show matched text
-in zebra striping fashion.
+L<App::Greple::stripe> is a module for L<greple|App::Greple> to show
+matched text in zebra striping fashion.
 
 The following command matches two consecutive lines.
 
@@ -93,6 +93,12 @@ The following two commands have exactly the same effect.
 Set the step count to I<n>.
 
 =back
+
+=head1 SEE ALSO
+
+L<App::Greple>
+
+L<App::Greple::xlate>
 
 =head1 AUTHOR
 
@@ -212,8 +218,6 @@ sub set {
 1;
 
 __DATA__
-
-builtin stripe-debug! $debug
 
 option --stripe-postgrep \
 	 --postgrep &__PACKAGE__::stripe
