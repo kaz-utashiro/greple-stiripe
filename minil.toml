@@ -1,4 +1,4 @@
-name           = "App-Greple-index"
+name           = "App-Greple-stripe"
 badges         = [ "github-actions/test.yml" ]
 module_maker   = "ModuleBuildTiny"
 static_install = "auto"

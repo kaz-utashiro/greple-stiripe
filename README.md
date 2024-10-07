@@ -1,16 +1,16 @@
 
 # NAME
 
-App::Greple::index - Greple index manipulation module
+App::Greple::stripe - Greple zebra stripe module
 
 # SYNOPSIS
 
-    greple -Mindex ...
+    greple -Mstripe ...
 
 # DESCRIPTION
 
-App::Greple::index is a module for **greple** to manipulate
-pattern match index.
+App::Greple::stripe is a module for **greple** to show matched text
+in zebra striping fashion.
 
 # AUTHOR
 

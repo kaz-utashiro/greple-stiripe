@@ -1,5 +1,5 @@
 {
-   "abstract" : "Greple index manipulation module",
+   "abstract" : "Greple zebra stripe module",
    "author" : [
       "Kazumasa Utashiro"
    ],
@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : 2
    },
-   "name" : "App-Greple-index",
+   "name" : "App-Greple-stripe",
    "no_index" : {
       "directory" : [
          "t",

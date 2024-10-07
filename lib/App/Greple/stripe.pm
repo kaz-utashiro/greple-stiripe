@@ -1,4 +1,4 @@
-package App::Greple::index;
+package App::Greple::stripe;
 
 use 5.024;
 use warnings;
@@ -9,16 +9,16 @@ our $VERSION = "0.01";
 
 =head1 NAME
 
-App::Greple::index - Greple index manipulation module
+App::Greple::stripe - Greple zebra stripe module
 
 =head1 SYNOPSIS
 
-    greple -Mindex ...
+    greple -Mstripe ...
 
 =head1 DESCRIPTION
 
-App::Greple::index is a module for B<greple> to manipulate
-pattern match index.
+App::Greple::stripe is a module for B<greple> to show matched text
+in zebra striping fashion.
 
 =head1 AUTHOR
 
@@ -54,10 +54,10 @@ my @series = (
 
 sub finalize {
     our($mod, $argv) = @_;
-    my @default = qw(--index-postgrep);
+    my @default = qw(--stripe-postgrep);
     for my $i (0, 1) {
 	for my $s (0 .. $step - 1) {
-	    push @default, "--cm $series[$s % @series]->[$i]";
+	    push @default, "--cm", $series[$s % @series]->[$i];
 	}
     }
     $mod->setopt(default => join(' ', @default));
@@ -66,7 +66,7 @@ sub finalize {
 #
 # Increment each index by $step
 #
-sub stripe_index {
+sub stripe {
     my $grep = shift;
     if ($step == 0) {
 	$step = _max_index($grep) + 1;
@@ -102,16 +102,7 @@ sub set {
 
 __DATA__
 
-builtin index-debug! $debug
-builtin index-step:i $step
+builtin stripe-debug! $debug
 
-option --index-postgrep \
-	 --postgrep &__PACKAGE__::stripe_index
-
-option --index-series-2 \
-	--cm=/544,/454 \
-	--cm=/533,/353
-
-option --index-series-3 \
-	--cm=/544,/454,/445 \
-	--cm=/533,/353,/335
+option --stripe-postgrep \
+	 --postgrep &__PACKAGE__::stripe
