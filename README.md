@@ -1,23 +1,24 @@
 
 # NAME
 
-App::Greple::index - It's new $module
+App::Greple::index - Greple index manipulation module
 
 # SYNOPSIS
 
-    use App::Greple::index;
+    greple -Mindex ...
 
 # DESCRIPTION
 
-App::Greple::index is ...
-
-# LICENSE
-
-Copyright (C) Kazumasa Utashiro.
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+App::Greple::index is a module for **greple** to manipulate
+pattern match index.
 
 # AUTHOR
 
-Kazumasa Utashiro <kaz@utashiro.com>
+Kazumasa Utashiro
+
+# LICENSE
+
+Copyright ©︎ 2024 Kazumasa Utashiro.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
