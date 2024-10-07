@@ -1,4 +1,4 @@
-
+[![Actions Status](https://github.com/kaz-utashiro/greple-stiripe/actions/workflows/test.yml/badge.svg)](https://github.com/kaz-utashiro/greple-stiripe/actions)
 # NAME
 
 App::Greple::stripe - Greple zebra stripe module
