@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/kaz-utashiro/greple-stiripe/actions/workflows/test.yml/badge.svg)](https://github.com/kaz-utashiro/greple-stiripe/actions)
+[![Actions Status](https://github.com/kaz-utashiro/greple-stripe/actions/workflows/test.yml/badge.svg)](https://github.com/kaz-utashiro/greple-stripe/actions)
 # NAME
 
 App::Greple::stripe - Greple zebra stripe module
@@ -92,7 +92,7 @@ The following two commands have exactly the same effect.
     Set the step count to _n_.
 
 - **-Mstripe::set**=**darkmode**
-- **--darkmode**=_n_
+- **--darkmode**
 
     Use dark background colors.
 

@@ -94,7 +94,7 @@ Set the step count to I<n>.
 
 =item B<-Mstripe::set>=B<darkmode>
 
-=item B<--darkmode>=I<n>
+=item B<--darkmode>
 
 Use dark background colors.
 

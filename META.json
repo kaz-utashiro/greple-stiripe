@@ -58,13 +58,13 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/kaz-utashiro/greple-stiripe/issues"
+         "web" : "https://github.com/kaz-utashiro/greple-stripe/issues"
       },
-      "homepage" : "https://github.com/kaz-utashiro/greple-stiripe",
+      "homepage" : "https://github.com/kaz-utashiro/greple-stripe",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/kaz-utashiro/greple-stiripe.git",
-         "web" : "https://github.com/kaz-utashiro/greple-stiripe"
+         "url" : "https://github.com/kaz-utashiro/greple-stripe.git",
+         "web" : "https://github.com/kaz-utashiro/greple-stripe"
       }
    },
    "version" : "0.99",
