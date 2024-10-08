@@ -10,7 +10,7 @@ App::Greple::stripe - Greple 斑马纹模块
 
 =head1 VERSION
 
-Version 0.9902
+Version 0.9903
 
 =head1 DESCRIPTION
 

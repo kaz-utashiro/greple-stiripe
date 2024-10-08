@@ -8,7 +8,7 @@ App::Greple::stripe - Greple 斑马纹模块
 
 # VERSION
 
-Version 0.9902
+Version 0.9903
 
 # DESCRIPTION
 

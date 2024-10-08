@@ -10,7 +10,7 @@ App::Greple::stripe - Greple 지브라 스트라이프 모듈
 
 =head1 VERSION
 
-Version 0.9902
+Version 0.9903
 
 =head1 DESCRIPTION
 
