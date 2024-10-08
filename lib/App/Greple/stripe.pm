@@ -148,12 +148,12 @@ sub opt :lvalue { ${$opt{+shift}} }
 
 sub hash_to_spec {
     pairmap {
-	$a = "$a|${\(uc(substr($a, 0, 1)))}";
+	my $key = "$a|${\(uc(substr($a, 0, 1)))}";
 	my $ref = ref $b;
-	if    (not defined $b)   { "$a!"  }
-	elsif ($ref eq 'SCALAR') { "$a!"  }
-	elsif (is_number($b))    { "$a=f" }
-	else                     { "$a=s" }
+	if    (not defined $b)   { "$key!"  }
+	elsif ($ref eq 'SCALAR') { "$key!"  }
+	elsif (is_number($b))    { "$key=f" }
+	else                     { "$key=s" }
     } shift->%*;
 }
 
