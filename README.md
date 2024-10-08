@@ -63,8 +63,8 @@ are specified, only lines matching all patterns will be output, so the
     </p>
 </div>
 
-If you want to use three series with three patterns, specify `step`
-when calling the module.
+If you want to use different color series for three patterns, specify
+`step` count when calling the module.
 
     greple -Mstripe::set=step=3 --need=1 -E p1 -E p2 -E p3 ...
 

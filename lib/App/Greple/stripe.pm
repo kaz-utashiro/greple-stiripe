@@ -63,8 +63,9 @@ C<--need=1> option is required to relax this condition.
 <img width="750" src="https://raw.githubusercontent.com/kaz-utashiro/greple-stiripe/refs/heads/main/images/random.png">
 </p>
 
-If you want to use three series with three patterns, specify C<step>
-when calling the module.
+If you want to use different color series for three or more patterns,
+specify C<step> count when calling the module.  The number of series
+can be increased up to 6.
 
     greple -Mstripe::set=step=3 --need=1 -E p1 -E p2 -E p3 ...
 
