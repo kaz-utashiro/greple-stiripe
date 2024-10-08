@@ -208,7 +208,7 @@ sub finalize {
 	}
     }
     local $" = ',';
-    $mod->setopt(default => join(' ', @default, "--cm=@cm"));
+    $mod->setopt(default => join(' ', @default, '--cm=@', "--cm=@cm"));
 }
 
 #

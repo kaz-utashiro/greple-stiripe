@@ -42,7 +42,8 @@
       },
       "runtime" : {
          "requires" : {
-            "App::Greple" : "9.1506",
+            "App::Greple" : "9.16",
+            "Getopt::EX" : "v2.2.1",
             "Hash::Util" : "0",
             "List::Util" : "1.56",
             "Scalar::Util" : "0",
