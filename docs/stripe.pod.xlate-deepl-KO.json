@@ -1,0 +1,50 @@
+[
+   [
+      "App::Greple::stripe - Greple zebra stripe module\n",
+      "App::Greple::stripe - Greple 지브라 스트라이프 모듈\n"
+   ],
+   [
+      "L<App::Greple::stripe> is a module for L<greple|App::Greple> to show matched text in zebra striping fashion.\n",
+      "L<App::Greple::stripe>는 일치하는 텍스트를 지브라 스트라이프 방식으로 표시하는 L<greple|App::Greple>용 모듈입니다.\n"
+   ],
+   [
+      "The following command matches two consecutive lines.\n",
+      "다음 명령은 연속된 두 줄을 일치시킵니다.\n"
+   ],
+   [
+      "However, each matched block is colored by the same color, so it is not clear where the block breaks. One way is to explicitly display the blocks using the C<--blockend> option.\n",
+      "그러나 일치하는 각 블록은 동일한 색상으로 표시되므로 블록이 끊어지는 위치가 명확하지 않습니다. 한 가지 방법은 C<--blockend> 옵션을 사용하여 블록을 명시적으로 표시하는 것입니다.\n"
+   ],
+   [
+      "Using the stripe module, blocks matching the same pattern are colored with different colors of the similar color series.\n",
+      "스트라이프 모듈을 사용하면 동일한 패턴과 일치하는 블록이 비슷한 색상 계열의 다른 색상으로 표시됩니다.\n"
+   ],
+   [
+      "By default, two color series are prepared. Thus, when multiple patterns are searched, an even-numbered pattern and an odd-numbered pattern are assigned different color series. When multiple patterns are specified, only lines matching all patterns will be output, so the C<--need=1> option is required to relax this condition.\n",
+      "기본적으로 두 가지 색상 계열이 준비되어 있습니다. 따라서 여러 패턴이 검색되면 짝수 패턴과 홀수 패턴에 서로 다른 색상 계열이 할당됩니다. 여러 패턴을 지정하면 모든 패턴과 일치하는 줄만 출력되므로 이 조건을 완화하려면 C<--need=1> 옵션이 필요합니다.\n"
+   ],
+   [
+      "If you want to use different color series for three or more patterns, specify C<step> count when calling the module. The number of series can be increased up to 6.\n",
+      "세 개 이상의 패턴에 서로 다른 색상 계열을 사용하려면 모듈을 호출할 때 C<단계> 개수를 지정하세요. 계열 수는 최대 6까지 늘릴 수 있습니다.\n"
+   ],
+   [
+      "There are options specific to the B<stripe> module. They can be specified either at the time of module declaration or as options following the module declaration and ending with C<-->.\n",
+      "B<스트라이프> 모듈에 특정한 옵션이 있습니다. 모듈을 선언할 때 지정하거나 모듈 선언 뒤에 C<-->로 끝나는 옵션으로 지정할 수 있습니다.\n"
+   ],
+   [
+      "The following two commands have exactly the same effect.\n",
+      "다음 두 명령은 정확히 같은 효과를 냅니다.\n"
+   ],
+   [
+      "Set the step count to I<n>.\n",
+      "걸음 수를 I<n>으로 설정합니다.\n"
+   ],
+   [
+      "Use dark background colors.\n",
+      "어두운 배경색을 사용합니다.\n"
+   ],
+   [
+      "Use C<--face> option to set foreground color for all colormap. The following command sets the foreground color to white and fills the entire line with the background color.\n",
+      "모든 컬러맵의 전경색을 설정하려면 C<--face> 옵션을 사용합니다. 다음 명령은 전경색을 흰색으로 설정하고 전체 줄을 배경색으로 채웁니다.\n"
+   ]
+]
