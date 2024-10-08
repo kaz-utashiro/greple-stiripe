@@ -17,12 +17,7 @@
       "directory" : [
          "t",
          "xt",
-         "inc",
-         "share",
-         "eg",
-         "examples",
-         "author",
-         "builder"
+         "docs"
       ]
    },
    "prereqs" : {
@@ -73,5 +68,5 @@
       "Kazumasa Utashiro <kaz@utashiro.com>"
    ],
    "x_serialization_backend" : "JSON::PP version 4.12",
-   "x_static_install" : 0
+   "x_static_install" : 1
 }
