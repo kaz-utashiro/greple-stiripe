@@ -200,7 +200,7 @@ sub finalize {
     our($mod, $my_argv, $argv) = mod_argv @_;
     getopt $my_argv, \%opt;
     my @default = qw(--stripe-postgrep);
-    my @cm;
+    my @cm = qw(@);
     my $map = $opt{darkmode} ? $series{dark} : $series{light};
     for my $i (0, 1) {
 	for my $s (0 .. $opt{step} - 1) {
@@ -208,7 +208,7 @@ sub finalize {
 	}
     }
     local $" = ',';
-    $mod->setopt(default => join(' ', @default, '--cm=@', "--cm=@cm"));
+    $mod->setopt(default => join(' ', @default, "--cm=@cm"));
 }
 
 #
