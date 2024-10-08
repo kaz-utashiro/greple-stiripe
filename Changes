@@ -2,6 +2,10 @@ Revision history for Perl extension App-Greple-stripe
 
 {{$NEXT}}
 
+0.9902 2024-10-08T01:40:46Z
+
+    - reset colormap using --cm=@ symbol
+
 0.9901 2024-10-07T12:32:37Z
 
     - introduce --darkmode option
